@@ -1,23 +1,23 @@
 const httpStatus = require('http-status');
-const newsModel = require('./model');
+const pagoModel = require('./model');
 
-const getNew = async (id) => {
-    return await newsModel.findById(id).exec();
+const getPago = async(id) => {
+    return await pagoModel.findById(id).exec();
 }
 
 
-const getAllNews = async () => {
-    let news = await newsModel.find({}, (err, doc) => {
+const getAllPagos = async() => {
+    let pago = await pagoModel.find({}, (err, doc) => {
         if (err) {
             console.log(err);
         }
     }).exec();
-    return news.reverse();
+    return pago.reverse();
 };
 
-const createNew = (req, res) => {
+const createPago = (req, res) => {
     let body = req.body;
-    let newNew = new newsModel({
+    let newPago = new pagoModel({
         cuentaUno: body.cuentaUno,
         cuentaDos: body.cuentaDos,
         monto: body.monto,
@@ -29,13 +29,13 @@ const createNew = (req, res) => {
     });
 };
 
-const updateNew = async (id, body, res) => {
-    let event = await newsModel.findByIdAndUpdate(id, body);
+const updatePago = async(id, body, res) => {
+    let event = await pagoModel.findByIdAndUpdate(id, body);
     return res.status(httpStatus.OK).send(event);
 }
 
-const removeNew = async (id, res) => {
-    await newsModel.findOneAndRemove({ _id: id }, (err) => {
+const removePago = async(id, res) => {
+    await pagoModel.findOneAndRemove({ _id: id }, (err) => {
         if (err) {
             console.log(err);
             return res.status(httpStatus.NOT_FOUND);
@@ -45,8 +45,8 @@ const removeNew = async (id, res) => {
     });
 }
 
-const removeAllNews = async (res) => {
-    await newsModel.remove({}, (err) => {
+const removeAllPagos = async(res) => {
+    await pagosModel.remove({}, (err) => {
         if (err) {
             console.log(err);
         }
@@ -58,10 +58,10 @@ const removeAllNews = async (res) => {
 }
 
 module.exports = {
-    getNew,
-    getAllNews,
-    createNew,
-    updateNew,
-    removeNew,
-    removeAllNews
+    getPago,
+    getAllPagos,
+    createPago,
+    updatePago,
+    removePago,
+    removeAllPagos
 };

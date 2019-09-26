@@ -32,7 +32,7 @@ const server = (app) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(morgan(morganMode));
-    app.use('/news', routes);
+    app.use('/transactions', routes);
 }
 
 module.exports = server;
