@@ -1,5 +1,6 @@
 const controller = require('./controller');
 const Router = require('express').Router;
+const path = require('path');
 const router = new Router();
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -26,37 +27,48 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
+
+
+
+router.get('/', (req, res)=>{
+    res.sendFile(path.join(__dirname , 'index.html'));        
+});
 /**
  * Función POST para la creación de un registro en la base de datos.
  */
-router.post('/', upload.single('foto'), (...args) => {
-    controller.create(...args);
-})
+router.post('/add', (req, res)=>{
+    controller.create(req, res);
+    res.send('Recibido');
+});
 
 /**
  * Función GET que retorna todos los pagos.
- */
-router.route('/').get((...args) => { controller.getAll(...args); });
+ 
+router.route('/').get((...args) => { 
+    controller.getAll(...args); 
+});
+*/
+
 
 /**
  * Función DELETE que borra todos los registros de pagos.
- */
-router.route('/').delete((...args) => controller.removeAll(...args));
 
+router.route('/').delete((...args) => controller.removeAll(...args));
+ */
 
 /**
  * Función GET que retorna un registro de pago específico según su ID.
- */
+ 
 router.route('/:id').get((...args) => controller.get(...args));
-
+*/
 /**
  * Función PUT modifica el pago indicado según su ID.
- */
+ 
 router.route('/:id').put((...args) => controller.update(...args));
-
+*/
 /**
  * Función DELETE elimina el pago de noticias específico según su ID.
- */
+ 
 router.route('/:id').delete((...args) => controller.remove(...args));
-
+*/
 module.exports = router;
