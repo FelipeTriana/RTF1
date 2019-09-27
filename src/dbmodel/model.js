@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const schema = {
     cuentaUno: { type: String, required: true },
     cuentaDos: { type: String, required: true },
+    nitEmpresaUno: { type: String, required: true },
+    nitEmpresaDos: { type: String, required: true },
+    responsableLegal: { type: String, required: true },
     monto: { type: String, required: true },
    
 };

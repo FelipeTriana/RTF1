@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/_head %>
+</head>
+
+<body>
+    <% include partials/_navbar %>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < transactions.length; i++) { %>
+                        <tr>
+                            <th scope="row"><%= i + 1%></th>
+                            <td><strong><%= transactions[i].prueba %></strong></td>
+                            <td><%= transactions[i].nose %></td>
+                            <td><%= transactions[i].nose %></td>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

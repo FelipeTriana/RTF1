@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const util = require('./util');
+const util = require('../logic/util');
 const multer = require('multer'); //Multer is a nodejs middleware for handling files, primarily used for uploading files.
 const upload = multer({ dest: './uploads/' });
 

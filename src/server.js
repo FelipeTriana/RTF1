@@ -5,9 +5,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 
 /*Routes */
-const routes = require('./App/routes');
+const routes = require('./routes/routes');
 
 /**
  * Importing configuration variables
@@ -29,10 +30,12 @@ const server = (app) => {
 
     app.use('/uploads/', express.static(__dirname + '/uploads'));
     app.set('port', port);
+    app.set('views' , path.join(__dirname, 'views'));
+    app.set('view engine' , 'ejs');
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(morgan(morganMode));
-    app.use(routes);
+    app.use('/', routes);
 }
 
 module.exports = server;

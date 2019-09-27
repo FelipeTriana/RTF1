@@ -1,4 +1,4 @@
-const controller = require('./controller');
+const controller = require('../controller/controller');
 const Router = require('express').Router;
 const path = require('path');
 const router = new Router();
@@ -31,14 +31,28 @@ const upload = multer({
 
 
 router.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname , 'index.html'));        
+    //res.sendFile(path.join(__dirname , '../index.html'));                   
+    res.render('index');
 });
 /**
  * Función POST para la creación de un registro en la base de datos.
  */
+router.get('/add', (req, res)=>{
+    //res.sendFile(path.join(__dirname , '../index.html'));                   
+    res.render('addTransaction');
+});
+ 
 router.post('/add', (req, res)=>{
     controller.create(req, res);
-    res.send('Recibido');
+    console.log(req.body);
+    res.render('index');
+});
+
+router.get('/list', (req, res)=>{
+    const transactions = [{ 'prueba' : 'jjfjfjfj', 'nose': 'jdadsjadjh' }, { 'prueba' : 22222, 'nose': 'jdadsjadjh' }];                  
+    res.render('list', {
+        transactions
+    });
 });
 
 /**

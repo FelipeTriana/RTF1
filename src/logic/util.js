@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const pagoModel = require('./model');
+const pagoModel = require('../dbmodel/model');
 
 const getPago = async(id) => {
     return await pagoModel.findById(id).exec();
@@ -17,15 +17,17 @@ const getAllPagos = async() => {
 
 const createPago = (req, res) => {
     let body = req.body;
+    console.log(body);
     let newPago = new pagoModel({
         cuentaUno: body.cuentaUno,
         cuentaDos: body.cuentaDos,
-        monto: body.monto,
-        //foto: req.file.path,
+        nitEmpresaUno : body.nitEmpresaUno,
+        nitEmpresaDos : body.nitEmpresaDos,
+        responsableLegal : body.responsableLegal,
+        monto: body.monto,        
+        
     }).save().then(() => {
-        return res.status(httpStatus.CREATED).send({
-            message: `Pago registrado exitosamente.`
-        });
+       
     });
 };
 
