@@ -49,7 +49,7 @@ router.post('/add', (req, res)=>{
 });
 
 router.get('/list', (req, res)=>{
-    const transactions = [{ 'prueba' : 'jjfjfjfj', 'nose': 'jdadsjadjh' }, { 'prueba' : 22222, 'nose': 'jdadsjadjh' }];                  
+    const transactions = controller.getAll();
     res.render('list', {
         transactions
     });

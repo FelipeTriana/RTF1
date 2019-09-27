@@ -12,7 +12,7 @@ const get = async(req, res) => {
 
 const getAll = async(req, res) => {
     let events = await util.getAllPagos();
-    return res.status(httpStatus.OK).send(events);
+    return events;
 };
 
 const create = async(req, res, ) => {
