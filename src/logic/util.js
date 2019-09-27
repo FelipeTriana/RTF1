@@ -17,6 +17,12 @@ const getAllPagos = async() => {
 
 const createPago = (req, res) => {
     let body = req.body;
+    
+    if(parseInt(body.monto) > 900){
+        var ticket = "El monto excede lo establecido, crear anomalia.";
+        }else{
+            var ticket = "null"
+        }
     console.log(body);
     let newPago = new pagoModel({
         cuentaUno: body.cuentaUno,
@@ -24,8 +30,8 @@ const createPago = (req, res) => {
         nitEmpresaUno : body.nitEmpresaUno,
         nitEmpresaDos : body.nitEmpresaDos,
         responsableLegal : body.responsableLegal,
-        monto: body.monto,        
-        
+        monto: body.monto, 
+        anomalia: ticket
     }).save().then(() => {
        
     });

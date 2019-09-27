@@ -7,7 +7,7 @@ const schema = {
     nitEmpresaDos: { type: String, required: true },
     responsableLegal: { type: String, required: true },
     monto: { type: String, required: true },
-   
+    anomalia : {type:String, required:true}
 };
 
 let newsSchema = new mongoose.Schema(schema);
