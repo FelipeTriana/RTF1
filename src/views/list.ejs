@@ -14,18 +14,26 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Número de cuenta empresa 1</th>
+                            <th scope="col">NIT empresa 1</th>
+                            <th scope="col">Responsable legal</th>
+                            <th scope="col">Número de cuenta empresa 2</th>
+                            <th scope="col">NIT empresa 2</th>
+                            <th scope="col">Dinero transferido</th>
+                            <th scope="col">Anomalia</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i=0; i < transactions.length; i++) { %>
                         <tr>
                             <th scope="row"><%= i + 1%></th>
-                            <td><strong><%= transactions[i].prueba %></strong></td>
-                            <td><%= transactions[i].nose %></td>
-                            <td><%= transactions[i].nose %></td>
+                            <td><strong><%= transactions[i].cuentaUno %></strong></td>
+                            <td><%= transactions[i].nitEmpresaUno %></td>
+                            <td><%= transactions[i].responsableLegal %></td>
+                            <td><%= transactions[i].cuentaDos %></td>
+                            <td><%= transactions[i].nitEmpresaDos %></td>
+                            <td><%= transactions[i].monto %></td>
+                            <td><%= transactions[i].anomalia %></td>                            
                         </tr>
                         <% } %>
                 </table>
