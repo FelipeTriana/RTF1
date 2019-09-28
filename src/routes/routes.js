@@ -29,19 +29,23 @@ const upload = multer({
 
 
 
-
+/**
+ * Función GET que devuelve la página de inicio.
+ */
 router.get('/', (req, res)=>{
-    //res.sendFile(path.join(__dirname , '../index.html'));                   
+    
     res.render('index');
 });
 /**
- * Función POST para la creación de un registro en la base de datos.
+ * Función GET que devuelve la página para realizar el registro de las transacciones.
  */
 router.get('/add', (req, res)=>{
-    //res.sendFile(path.join(__dirname , '../index.html'));                   
+                       
     res.render('addTransaction');
 });
- 
+/**
+ * Función POST para la creación de un registro en la base de datos.
+ */ 
 router.post('/add', (req, res)=>{
     controller.create(req, res);
     console.log(req.body);

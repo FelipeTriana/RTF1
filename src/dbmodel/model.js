@@ -12,5 +12,5 @@ const schema = {
 
 let newsSchema = new mongoose.Schema(schema);
 let newsModel = mongoose.model('News', newsSchema);
-
+/* Exportando el modelo de mongoose*/ 
 module.exports = newsModel;
