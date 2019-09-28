@@ -19,9 +19,9 @@ const createPago = (req, res) => {
     let body = req.body;
 
     if (parseInt(body.monto) > 900) {
-        var ticket = "El monto excede lo establecido, crear anomalia.";
+        var ticket = "El monto excede lo establecido de 900.";
     } else {
-        var ticket = "null"
+        var ticket = "No se presentan anomalias en el dinero transferido"
     }
     console.log(body);
     let newPago = new pagoModel({

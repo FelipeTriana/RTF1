@@ -49,11 +49,11 @@ router.get('/add', (req, res)=>{
 router.post('/add', (req, res)=>{
     controller.create(req, res);
     console.log(req.body);
-    res.render('index');
+    res.redirect('/');
 });
 
-router.get('/list', (req, res)=>{
-    const transactions = controller.getAll();
+router.get('/list', async (req, res)=>{
+    const transactions = await controller.getAll();
     res.render('list', {
         transactions
     });

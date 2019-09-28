@@ -9,4 +9,3 @@ app.listen(app.get('port'), () => {
 }); 
 
 
-//Necesito esto wey: https://github.com/FaztWeb/express-mongodb-crud/blob/master/src/routes/index.js
